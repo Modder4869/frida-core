@@ -1,7 +1,7 @@
 namespace Frida.Server {
 	private static Application application;
 
-	private const string DEFAULT_DIRECTORY = "re.frida.server";
+	private static string? DEFAULT_DIRECTORY = null;
 	private static bool output_version = false;
 	private static string? listen_address = null;
 	private static string? certpath = null;
@@ -50,6 +50,7 @@ namespace Frida.Server {
 	};
 
 	private static int main (string[] args) {
+		DEFAULT_DIRECTORY = GLib.Uuid.string_random();
 		Environment.init ();
 
 #if DARWIN
@@ -177,7 +178,7 @@ namespace Frida.Server {
 		Environment.configure ();
 
 #if DARWIN
-		var worker = new Thread<int> ("frida-server-main-loop", () => {
+		var worker = new Thread<int> ("banana-server-main-loop", () => {
 			var exit_code = run_application (endpoint_params, options, on_ready);
 
 			_stop_run_loop ();

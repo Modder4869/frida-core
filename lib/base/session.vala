@@ -299,7 +299,7 @@ namespace Frida {
 			var offer = PeerSessionDescription.parse (offer_sdp);
 
 			var agent = new Nice.Agent.full (dbus_context, Nice.Compatibility.RFC5245, ICE_TRICKLE);
-			agent.set_software ("Frida");
+			agent.set_software ("Banana");
 			agent.controlling_mode = false;
 			agent.ice_tcp = false;
 
@@ -2039,7 +2039,7 @@ namespace Frida {
 #endif
 
 	namespace ServerGuid {
-		public const string HOST_SESSION_SERVICE = "6769746875622e636f6d2f6672696461";
+		public const string HOST_SESSION_SERVICE = "851fa8de1f0a068701f5699c3e074ae6";
 	}
 
 	namespace ObjectPath {

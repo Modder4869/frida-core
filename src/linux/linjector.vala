@@ -102,6 +102,7 @@ namespace Frida {
 		public async uint inject_library_fd (uint pid, UnixInputStream library_so, string entrypoint, string data,
 				AgentFeatures features, Cancellable? cancellable) throws Error, IOError {
 			uint id = next_injectee_id++;
+			print(entrypoint);
 			yield helper.inject_library (pid, library_so, entrypoint, data, features, id, cancellable);
 
 			pid_by_id[id] = pid;
